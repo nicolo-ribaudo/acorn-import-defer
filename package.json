@@ -20,6 +20,10 @@
     "proposal"
   ],
   "author": "Nicolò Ribaudo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicolo-ribaudo/acorn-import-defer.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "acorn": "^8.14.0"
