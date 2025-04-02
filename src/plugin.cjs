@@ -16,15 +16,19 @@ exports.plugin = function acornImportDefer(Parser, tt) {
     parseImportSpecifiers() {
       if (!this.isContextual("defer")) return super.parseImportSpecifiers();
 
-      const deferId = this.parseImportDefaultSpecifier();
-      if (this.isContextual("from")) {
-        return [deferId];
-      } else if (this.eat(tt.comma)) {
-        if (this.type !== tt.star && this.type !== tt.braceL) {
-          this.unexpected();
+      const deferId = this.parseIdent();
+      if (this.isContextual("from") || this.type === tt.comma) {
+        const defaultSpecifier = this.startNodeAt(deferId.start, deferId.loc.start);
+        defaultSpecifier.local = deferId;
+        this.checkLValSimple(deferId, /* BIND_LEXICAL */ 2);
+
+        const nodes = [this.finishNode(defaultSpecifier, "ImportDefaultSpecifier")];
+        if (this.eat(tt.comma)) {
+          if (this.type !== tt.star && this.type !== tt.braceL) {
+            this.unexpected();
+          }
+          nodes.push(...super.parseImportSpecifiers());
         }
-        const nodes = super.parseImportSpecifiers();
-        nodes.unshift(deferId);
         return nodes;
       }
 

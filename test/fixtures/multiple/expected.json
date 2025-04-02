@@ -1,0 +1,268 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 75,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 4,
+      "column": 0
+    }
+  },
+  "range": [
+    0,
+    75
+  ],
+  "body": [
+    {
+      "type": "VariableDeclaration",
+      "start": 0,
+      "end": 14,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 14
+        }
+      },
+      "range": [
+        0,
+        14
+      ],
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "start": 4,
+          "end": 13,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 4
+            },
+            "end": {
+              "line": 1,
+              "column": 13
+            }
+          },
+          "range": [
+            4,
+            13
+          ],
+          "id": {
+            "type": "Identifier",
+            "start": 4,
+            "end": 9,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 4
+              },
+              "end": {
+                "line": 1,
+                "column": 9
+              }
+            },
+            "range": [
+              4,
+              9
+            ],
+            "name": "defer"
+          },
+          "init": {
+            "type": "Literal",
+            "start": 12,
+            "end": 13,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 12
+              },
+              "end": {
+                "line": 1,
+                "column": 13
+              }
+            },
+            "range": [
+              12,
+              13
+            ],
+            "value": 1,
+            "raw": "1"
+          }
+        }
+      ],
+      "kind": "let"
+    },
+    {
+      "type": "ImportDeclaration",
+      "start": 15,
+      "end": 44,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 29
+        }
+      },
+      "range": [
+        15,
+        44
+      ],
+      "specifiers": [
+        {
+          "type": "ImportNamespaceSpecifier",
+          "start": 28,
+          "end": 34,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 13
+            },
+            "end": {
+              "line": 2,
+              "column": 19
+            }
+          },
+          "range": [
+            28,
+            34
+          ],
+          "local": {
+            "type": "Identifier",
+            "start": 33,
+            "end": 34,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 18
+              },
+              "end": {
+                "line": 2,
+                "column": 19
+              }
+            },
+            "range": [
+              33,
+              34
+            ],
+            "name": "x"
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "start": 40,
+        "end": 43,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 25
+          },
+          "end": {
+            "line": 2,
+            "column": 28
+          }
+        },
+        "range": [
+          40,
+          43
+        ],
+        "value": "x",
+        "raw": "\"x\""
+      },
+      "phase": "defer"
+    },
+    {
+      "type": "ImportDeclaration",
+      "start": 45,
+      "end": 74,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 29
+        }
+      },
+      "range": [
+        45,
+        74
+      ],
+      "specifiers": [
+        {
+          "type": "ImportNamespaceSpecifier",
+          "start": 58,
+          "end": 64,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 13
+            },
+            "end": {
+              "line": 3,
+              "column": 19
+            }
+          },
+          "range": [
+            58,
+            64
+          ],
+          "local": {
+            "type": "Identifier",
+            "start": 63,
+            "end": 64,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 18
+              },
+              "end": {
+                "line": 3,
+                "column": 19
+              }
+            },
+            "range": [
+              63,
+              64
+            ],
+            "name": "y"
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "start": 70,
+        "end": 73,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 25
+          },
+          "end": {
+            "line": 3,
+            "column": 28
+          }
+        },
+        "range": [
+          70,
+          73
+        ],
+        "value": "y",
+        "raw": "\"y\""
+      },
+      "phase": "defer"
+    }
+  ],
+  "sourceType": "module"
+}
