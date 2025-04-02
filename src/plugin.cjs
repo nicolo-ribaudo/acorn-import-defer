@@ -4,12 +4,10 @@
  */
 exports.plugin = function acornImportDefer(Parser, tt) {
   return class extends Parser {
-    #defer = false;
-
     parseImport(node) {
-      this.#defer = false;
+      this._defer = false;
       const result = super.parseImport(node);
-      if (this.#defer) {
+      if (this._defer) {
         node.phase = "defer";
       }
       return result;
@@ -30,7 +28,7 @@ exports.plugin = function acornImportDefer(Parser, tt) {
         return nodes;
       }
 
-      this.#defer = true;
+      this._defer = true;
 
       if (this.type !== tt.star) {
         this.raiseRecoverable(
