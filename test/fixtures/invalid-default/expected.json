@@ -1,0 +1,3 @@
+{
+  "error": "'import defer' can only be used with namespace imports. (1:7)"
+}

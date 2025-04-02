@@ -1,0 +1,25 @@
+{
+  "name": "acorn-import-defer",
+  "version": "0.0.0",
+  "description": "Support for `import defer` syntax in Acorn",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./src/index.cjs",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node --test ./test/index.js"
+  },
+  "keywords": ["acorn", "import", "defer", "proposal"],
+  "author": "Nicolò Ribaudo",
+  "license": "MIT",
+  "devDependencies": {
+    "acorn": "^8.14.0"
+  },
+  "peerDependencies": {
+    "acorn": "^8.14.0"
+  }
+}
