@@ -2,7 +2,7 @@
  * @param {typeof import("acorn").Parser} Parser
  * @param {typeof import("acorn").tokTypes} acorn
  */
-exports.plugin = function acornImportDefer(Parser, tt) {
+exports.plugin = function acornImportPhase(Parser, tt) {
   return class extends Parser {
     parseImport(node) {
       this._phase = null;
@@ -17,11 +17,11 @@ exports.plugin = function acornImportDefer(Parser, tt) {
       let phase = this.isContextual("defer") ? "defer" : this.isContextual("source") ? "source" : null;
       if (!phase) return super.parseImportSpecifiers();
 
-      const deferId = this.parseIdent();
+      const phaseId = this.parseIdent();
       if (this.isContextual("from") || this.type === tt.comma) {
-        const defaultSpecifier = this.startNodeAt(deferId.start, deferId.loc.start);
-        defaultSpecifier.local = deferId;
-        this.checkLValSimple(deferId, /* BIND_LEXICAL */ 2);
+        const defaultSpecifier = this.startNodeAt(phaseId.start, phaseId.loc.start);
+        defaultSpecifier.local = phaseId;
+        this.checkLValSimple(phaseId, /* BIND_LEXICAL */ 2);
 
         const nodes = [this.finishNode(defaultSpecifier, "ImportDefaultSpecifier")];
         if (this.eat(tt.comma)) {
@@ -38,14 +38,14 @@ exports.plugin = function acornImportDefer(Parser, tt) {
       if (phase === "defer") {
         if (this.type !== tt.star) {
           this.raiseRecoverable(
-            deferId.start,
+            phaseId.start,
             "'import defer' can only be used with namespace imports."
           );
         }
       } else if (phase === "source") {
         if (this.type !== tt.name) {
           this.raiseRecoverable(
-            deferId.start,
+            phaseId.start,
             "'import source' can only be used with direct identifier specifier imports."
           );
         }
