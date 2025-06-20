@@ -1,7 +1,7 @@
 {
-  "name": "acorn-import-defer",
+  "name": "acorn-import-phase",
   "version": "1.0.2",
-  "description": "Support for `import defer` syntax in Acorn",
+  "description": "Support for `import <defer|source>` phase syntax in Acorn",
   "type": "module",
   "exports": {
     ".": {
@@ -17,6 +17,7 @@
     "acorn",
     "import",
     "defer",
+    "source phase",
     "proposal"
   ],
   "author": "Nicolò Ribaudo",

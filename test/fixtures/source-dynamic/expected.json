@@ -1,0 +1,82 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 22,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 2,
+      "column": 0
+    }
+  },
+  "range": [
+    0,
+    22
+  ],
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "start": 0,
+      "end": 21,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 21
+        }
+      },
+      "range": [
+        0,
+        21
+      ],
+      "expression": {
+        "type": "ImportExpression",
+        "start": 0,
+        "end": 20,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 20
+          }
+        },
+        "range": [
+          0,
+          20
+        ],
+        "source": {
+          "type": "Literal",
+          "start": 14,
+          "end": 19,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 14
+            },
+            "end": {
+              "line": 1,
+              "column": 19
+            }
+          },
+          "range": [
+            14,
+            19
+          ],
+          "value": "foo",
+          "raw": "\"foo\""
+        },
+        "phase": "source"
+      }
+    }
+  ],
+  "sourceType": "module"
+}

@@ -19,7 +19,7 @@ const testFolders = readdirSync(resolve("./fixtures")).filter((file) =>
 
 const overwrite = process.env.OVERWRITE === "1";
 
-describe("acorn-import-defer", () => {
+describe("acorn-import-phase", () => {
   describe("esm", () => {
     runTests(acornESM, pluginESM);
   });
@@ -41,7 +41,6 @@ function runTests(acorn, plugin) {
       let result;
       try {
         const Parser = acorn.Parser.extend(plugin);
-        console.log(Parser)
         result = Parser.parse(actual, {
           ecmaVersion: 2024,
           locations: true,
