@@ -1,9 +1,9 @@
-# Support for `import defer` in acorn
+# Support for `import defer` and `import souce` in acorn
 
 ## Install
 
 ```
-npm install acorn-import-defer
+npm install acorn-import-phases
 ```
 
 ## Usage
