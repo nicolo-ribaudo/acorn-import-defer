@@ -1,6 +1,6 @@
 import { tokTypes } from "acorn";
 import { plugin } from "./plugin.cjs";
 
-export default function (Parser) {
-  return plugin(Parser, Parser.acorn ? Parser.acorn.tokTypes : tokTypes);
+export default function (options = {}) {
+  return Parser => plugin(options, Parser, Parser.acorn ? Parser.acorn.tokTypes : tokTypes);
 }

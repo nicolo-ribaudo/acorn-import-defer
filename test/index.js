@@ -1,5 +1,5 @@
 import { describe, it } from "node:test";
-import { deepStrictEqual } from "node:assert";
+import { deepStrictEqual, throws, doesNotThrow } from "node:assert";
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
@@ -40,7 +40,7 @@ function runTests(acorn, plugin) {
 
       let result;
       try {
-        const Parser = acorn.Parser.extend(plugin);
+        const Parser = acorn.Parser.extend(plugin());
         result = Parser.parse(actual, {
           ecmaVersion: 2024,
           locations: true,
@@ -71,6 +71,50 @@ function runTests(acorn, plugin) {
         JSON.parse(JSON.stringify(result)),
         JSON.parse(expected)
       );
+    });
+  });
+
+  describe("options", () => {
+    it("should disable 'defer' phase", () => {
+      const Parser = acorn.Parser.extend(plugin({ defer: false }));
+
+      throws(() => {
+        Parser.parse("import defer * as x from 'x';", {
+          ecmaVersion: 2024,
+          locations: true,
+          ranges: true,
+          sourceType: "module",
+        });
+      });
+      doesNotThrow(() => {
+        Parser.parse("import source x from 'x';", {
+          ecmaVersion: 2024,
+          locations: true,
+          ranges: true,
+          sourceType: "module",
+        });
+      });
+    });
+
+    it("should disable 'source' phase", () => {
+      const Parser = acorn.Parser.extend(plugin({ source: false }));
+
+      throws(() => {
+        Parser.parse("import source x from 'x';", {
+          ecmaVersion: 2024,
+          locations: true,
+          ranges: true,
+          sourceType: "module",
+        });
+      });
+      doesNotThrow(() => {
+        Parser.parse("import defer * as x from 'x';", {
+          ecmaVersion: 2024,
+          locations: true,
+          ranges: true,
+          sourceType: "module",
+        });
+      });
     });
   });
 }

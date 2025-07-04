@@ -1,5 +1,5 @@
 const { plugin } = require("./plugin.cjs");
 
-module.exports = function (Parser) {
-  return plugin(Parser, (Parser.acorn || require("acorn")).tokTypes);
+module.exports = function (options = {}) {
+  return (Parser) => plugin(options, Parser, (Parser.acorn || require("acorn")).tokTypes);
 };

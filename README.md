@@ -12,8 +12,17 @@ This module provides a plugin that can be used to extend the Acorn Parser class:
 
 ```js
 const {Parser} = require('acorn');
-const importDefer = require('acorn-import-defer');
-Parser.extend(importDefer).parse('...');
+const importPhases = require('acorn-import-phases');
+Parser.extend(importPhases()).parse('...');
+```
+
+By default, the plugin supports both `import defer` and `import source` syntax. You can disable one of them by passing an options object:
+
+```js
+const {Parser} = require('acorn');
+const importPhases = require('acorn-import-phases');
+Parser.extend(importPhases({ defer: false })).parse('...');
+Parser.extend(importPhases({ source: false })).parse('...');
 ```
 
 ## License

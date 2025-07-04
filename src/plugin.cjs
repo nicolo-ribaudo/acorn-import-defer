@@ -1,8 +1,9 @@
 /**
+ * @param {{ defer?: boolean, source?: boolean }} options
  * @param {typeof import("acorn").Parser} Parser
  * @param {typeof import("acorn").tokTypes} acorn
  */
-exports.plugin = function acornImportPhase(Parser, tt) {
+exports.plugin = function acornImportPhase(options, Parser, tt) {
   return class extends Parser {
     parseImport(node) {
       this._phase = null;
@@ -14,7 +15,12 @@ exports.plugin = function acornImportPhase(Parser, tt) {
     }
 
     parseImportSpecifiers() {
-      let phase = this.isContextual("defer") ? "defer" : this.isContextual("source") ? "source" : null;
+      let phase =
+        options.defer !== false && this.isContextual("defer")
+          ? "defer"
+          : options.source !== false && this.isContextual("source")
+          ? "source"
+          : null;
       if (!phase) return super.parseImportSpecifiers();
 
       const phaseId = this.parseIdent();
