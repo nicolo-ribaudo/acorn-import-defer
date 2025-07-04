@@ -3,6 +3,8 @@
   "version": "1.0.1",
   "description": "Support for `import <defer|source>` phase syntax in Acorn",
   "type": "module",
+  "main": "./src/index.cjs",
+  "types": "./src/index.d.cts",
   "exports": {
     ".": {
       "require": {
