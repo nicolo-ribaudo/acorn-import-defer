@@ -1,5 +1,5 @@
 {
-  "name": "acorn-import-phase",
+  "name": "acorn-import-phases",
   "version": "1.0.2",
   "description": "Support for `import <defer|source>` phase syntax in Acorn",
   "type": "module",
