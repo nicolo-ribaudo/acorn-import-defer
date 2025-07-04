@@ -1,9 +1,9 @@
-import type { Parser } from "acorn";
+import { Parser } from "acorn";
 
 interface Options {
   source?: boolean;
   defer?: boolean;
 }
 
-declare function acornImportPhases(options?: Options): (BaseParser: Parser) => Parser;
+declare function acornImportPhases(options?: Options): (BaseParser: typeof Parser) => typeof Parser;
 export = acornImportPhases;
