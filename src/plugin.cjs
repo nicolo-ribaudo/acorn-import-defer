@@ -39,7 +39,7 @@ exports.plugin = function acornImportPhase(Parser, tt) {
         if (this.type !== tt.star) {
           this.raiseRecoverable(
             phaseId.start,
-            "'import defer' can only be used with namespace imports."
+            "'import defer' can only be used with namespace imports ('import defer * as identifierName from ...')."
           );
         }
       } else if (phase === "source") {
@@ -51,7 +51,16 @@ exports.plugin = function acornImportPhase(Parser, tt) {
         }
       }
 
-      return super.parseImportSpecifiers();
+      const specifiers =  super.parseImportSpecifiers();
+
+      if (phase === "source" && specifiers.some(s => s.type !== "ImportDefaultSpecifier")) {
+        this.raiseRecoverable(
+          phaseId.start,
+          `'import source' can only be used with direct identifier specifier imports ('import source identifierName from ...').`
+        );
+      }
+
+      return specifiers;
     }
 
     parseExprImport(forNew) {

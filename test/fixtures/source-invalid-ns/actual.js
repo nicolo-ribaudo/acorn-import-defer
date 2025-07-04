@@ -1,1 +1,1 @@
-import source { foo } from "x";
+import source * as foo from "x";
