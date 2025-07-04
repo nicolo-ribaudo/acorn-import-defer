@@ -4,7 +4,7 @@ const assert = require("assert");
 const acorn = require("acorn");
 const plugin = require("../src/index.cjs");
 
-const Parser = acorn.Parser.extend(plugin);
+const Parser = acorn.Parser.extend(plugin());
 
 const result = Parser.parse("import defer * as foo from 'foo'", {
   ecmaVersion: 2024,
