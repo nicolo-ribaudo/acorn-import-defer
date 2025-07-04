@@ -17,7 +17,9 @@
     "acorn",
     "import",
     "defer",
-    "source phase",
+    "source",
+    "phase",
+    "wasm",
     "proposal"
   ],
   "author": "Nicolò Ribaudo",
