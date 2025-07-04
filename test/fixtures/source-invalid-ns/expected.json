@@ -1,0 +1,3 @@
+{
+  "error": "'import source' can only be used with direct identifier specifier imports. (1:7)"
+}
