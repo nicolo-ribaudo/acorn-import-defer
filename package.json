@@ -31,7 +31,7 @@
   "author": "Nicolò Ribaudo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicolo-ribaudo/acorn-import-defer.git"
+    "url": "https://github.com/nicolo-ribaudo/acorn-import-phases.git"
   },
   "license": "MIT",
   "devDependencies": {
