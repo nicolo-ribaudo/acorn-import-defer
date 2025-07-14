@@ -25,7 +25,7 @@ exports.plugin = function acornImportPhase(options, Parser, tt) {
 
       const phaseId = this.parseIdent();
       if (this.isContextual("from") || this.type === tt.comma) {
-        const defaultSpecifier = this.startNodeAt(phaseId.start, phaseId.loc.start);
+        const defaultSpecifier = this.startNodeAt(phaseId.start, phaseId.loc && phaseId.loc.start);
         defaultSpecifier.local = phaseId;
         this.checkLValSimple(phaseId, /* BIND_LEXICAL */ 2);
 
